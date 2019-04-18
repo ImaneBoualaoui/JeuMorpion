@@ -1,6 +1,6 @@
 require 'pry'
 require_relative 'game'
-
+require 'colorize'
 
 class Application
 
@@ -53,9 +53,9 @@ class Application
                 if @game.check_choice(case_choice) == true
                    	break
            	    else #sinon on lui demande de choisir une nouvelle case
-           	    	puts "Cette case n'est pas valide, elle est soit déjà remplite soit hors du plateau"
-           	    	puts "Choisis une nouvelle case sur le plateau"
-           	    	print ">"
+           	    	puts "Cette case n'est pas valide, elle est soit déjà remplite soit hors du plateau".yellow
+           	    	puts "Choisis une nouvelle case sur le plateau".yellow
+           	    	print ">".yellow
                   	case_choice = gets.chomp 
                 end
             end
@@ -69,12 +69,12 @@ class Application
             #Si non on passe au joueur suivant
             winner = @game.winner
                 if winner == true  
-                    puts "VOUS AVEZ GAGNÉ #{@player1} !!!!"
+                    puts "VOUS AVEZ GAGNÉ #{@player1.red} !!!!"
                 break
                 end
 
             #Si au 9 eme coup joué , il n'ya pas de gagnant, on break et on affiche Match Nul 
-            if @game.game_count>=9
+            if Game.game_count>=9
                 puts "Match Nul...."
                 break
             end
@@ -94,9 +94,9 @@ class Application
                 if @game.check_choice(case_choice) == true
                    	break
            	    else #sinon on lui demande de choisir une nouvelle case
-           	    	puts "Cette case n'est pas valide, elle est soit déjà remplite soit hors du plateau"
-           	    	puts "Choisis une nouvelle case sur le plateau"
-           	    	print ">"
+           	    	puts "Cette case n'est pas valide, elle est soit déjà remplite soit hors du plateau".yellow
+           	    	puts "Choisis une nouvelle case sur le plateau".yellow
+           	    	print ">".yellow
                   	case_choice = gets.chomp 
                 end
             end
@@ -110,7 +110,7 @@ class Application
             #Si non on passe au premier joueur
             winner = @game.winner
                 if winner == true 
-                    then puts "VOUS AVEZ GAGNÉ #{@player2} !!!!"
+                    then puts "VOUS AVEZ GAGNÉ #{@player2.green} !!!!"
                     break
                 end
         end 
@@ -134,9 +134,9 @@ class Application
 	                if @game.check_choice(case_choice) == true
 	                   	break
 	           	    else #sinon on lui demande de choisir une nouvelle case
-	           	    	puts "Cette case n'est pas valide, elle est soit déjà remplite soit hors du plateau"
-	           	    	puts "Choisis une nouvelle case sur le plateau"
-	           	    	print ">"
+	           	    	puts "Cette case n'est pas valide, elle est soit déjà remplite soit hors du plateau".yellow
+	           	    	puts "Choisis une nouvelle case sur le plateau".yellow
+	           	    	print ">".yellow
 	                  	case_choice = gets.chomp 
 	                end
 	            end
@@ -150,12 +150,12 @@ class Application
 	            #Si non on passe au joueur suivant
 	            winner = @game.winner
 	                if winner == true  
-	                    puts "VOUS AVEZ GAGNÉ #{@player1} !!!!"
+	                    puts "VOUS AVEZ GAGNÉ #{@player1.red} !!!!"
 	                break
 	                end
 
 	            #Si au 9 eme coup joué , il n'ya pas de gagnant, on break et on affiche Match Nul 
-	            if @game.game_count>=9
+	            if Game.game_count>=9
 	                puts "Match Nul..."
 	                break
 	            end
@@ -174,9 +174,9 @@ class Application
 	                if @game.check_choice(case_choice) == true
 	                   	break
 	           	    else #sinon on lui demande de choisir une nouvelle case
-	           	    	puts "Cette case n'est pas valide, elle est soit déjà remplite soit hors du plateau"
-	           	    	puts "Choisis une nouvelle case sur le plateau"
-	           	    	print ">"
+	           	    	puts "Cette case n'est pas valide, elle est soit déjà remplite soit hors du plateau".yellow
+	           	    	puts "Choisis une nouvelle case sur le plateau".yellow
+	           	    	print ">".yellow
 	                  	case_choice = gets.chomp 
 	                end
 	            end
@@ -190,7 +190,7 @@ class Application
 	            #Si non on passe au premier joueur
 	            winner = @game.winner
 	                if winner == true 
-	                    then puts "VOUS AVEZ GAGNÉ #{@player2} !!!!"
+	                    then puts "VOUS AVEZ GAGNÉ #{@player2.green} !!!!"
 	                    break
 	                end
         	end 

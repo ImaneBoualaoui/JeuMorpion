@@ -2,19 +2,21 @@ require 'pry'
 require_relative 'player'
 require_relative 'board'
 require_relative 'board_case'
+require 'colorize'
 
 class Game
 
-  attr_accessor :board, :game_count, :player1, :player2
+  attr_accessor :board, :player1, :player2 #varaible d'instance
+  @@game_count #variable de classe
 
   def initialize(name1, name2)
   
-    @player1 = Player.new(name1, "X")
-    @player2 = Player.new(name2, "O")
+    @player1 = Player.new(name1, "X".red)
+    @player2 = Player.new(name2, "O".green)
 
     @board = Board.new
 
-    @game_count = 0 #permet de déterminer si on a eu un match nul ou pas => si au bout de 9 coups pas de gagnant
+    @@game_count = 0 #permet de déterminer si on a eu un match nul ou pas => si au bout de 9 coups pas de gagnant
 
   end
 
@@ -28,7 +30,7 @@ class Game
     @board.show_board 
 
     #on rajoute +1 game_count à chaque tour jouer
-    @game_count +=1 
+    @@game_count +=1 
   end
 
   #le joueur 2 joue son tour
@@ -40,7 +42,7 @@ class Game
     @board.show_board  
 
     #on rajoute +1 game_count à chaque tour jouer
-    @game_count +=1
+    @@game_count +=1
     
   end
 
@@ -65,8 +67,8 @@ class Game
   end
 
   #Méthode de classe pour savoir le nombre de coup jouer dans la partie
-  def game_count
-    return @game_count
+  def self.game_count
+    return @@game_count
   end
 
   def new_round
@@ -77,7 +79,7 @@ class Game
 
     if choice == "oui"
       @board = Board.new
-      @game_count = 0
+      @@game_count = 0
       return true
     else 
       return false
